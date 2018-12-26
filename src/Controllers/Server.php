@@ -79,7 +79,7 @@ class Server extends web\Controller
             /** @noinspection PhpMissingBreakStatementInspection */
             case 'POST':
                 if ($server->load($this->request->bodyParams) && $server->save()) {
-                    return $this->redirect('/server/list?project= ' . htmlspecialchars($project->name));
+                    return $this->redirect('/server/list?project=' . htmlspecialchars($project->name));
                 }
             case 'GET':
                 return $this->render('create', ['model' => $server,]);
