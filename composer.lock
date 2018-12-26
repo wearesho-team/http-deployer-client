@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "103b9cad8071d3fa71249a502dc029fb",
+    "content-hash": "152650501690371b864d29e2465683e1",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -1034,72 +1034,6 @@
                 "environment"
             ],
             "time": "2018-07-29T20:33:41+00:00"
-        },
-        {
-            "name": "wearesho-team/copyright",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:wearesho-team/copyright.git",
-                "reference": "50606c9def7e867af3e5aba1083dfaf231172327"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wearesho-team/copyright/zipball/50606c9def7e867af3e5aba1083dfaf231172327",
-                "reference": "50606c9def7e867af3e5aba1083dfaf231172327",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://repo.packagist.com/wearesho-team359501/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "php": ">=7.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7.1",
-                "squizlabs/php_codesniffer": "3.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Wearesho\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Wearesho\\Tests\\": "tests/"
-                }
-            },
-            "notification-url": "https://repo.packagist.com/wearesho-team359501/downloads/",
-            "scripts": {
-                "lint": [
-                    "./vendor/bin/phpcs --standard=PSR2 ./src ./tests"
-                ],
-                "phpcbf": [
-                    "./vendor/bin/phpcbf --standard=PSR2 ./src ./tests"
-                ],
-                "test": [
-                    "./vendor/bin/phpunit"
-                ]
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Alexander Letnikow",
-                    "email": "reclamme@gmail.com"
-                }
-            ],
-            "description": "Copyright Template",
-            "support": {
-                "source": "https://github.com/wearesho-team/copyright/tree/1.0.0",
-                "issues": "https://github.com/wearesho-team/copyright/issues"
-            },
-            "time": "2018-04-20T17:38:34+00:00"
         },
         {
             "name": "yiisoft/yii2",
