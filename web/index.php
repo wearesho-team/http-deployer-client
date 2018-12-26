@@ -54,7 +54,10 @@ $config = [
                     'sourcePath' => null,   // do not publish the bundle
                 ],
             ],
-        ]
+        ],
+        'session' => [
+            'class' => web\DbSession::class,
+        ],
     ],
 ];
 

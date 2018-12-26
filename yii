@@ -16,7 +16,9 @@ $config = [
             'migrationNamespaces' => [
                 'Wearesho\\Deployer\\Migrations',
             ],
-            'migrationPath' => null,
+            'migrationPath' => [
+                    '@yii/web/migrations'
+            ],
         ],
         'users' => [
             'class' => Deployer\Console\Controllers\Users::class,
