@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+
+use Wearesho\Deployer;
+use yii\console;
+use yii\console\controllers\MigrateController;
+use yii\helpers\ArrayHelper;
+
+require(__DIR__ . '/src/Config/autoload.php');
+
+$commonConfig = require __DIR__ . '/src/Config/config.php';
+$config = [
+    'controllerMap' => [
+        'migrate' => [
+            'class' => MigrateController::class,
+            'migrationNamespaces' => [
+                'Wearesho\\Deployer\\Migrations',
+            ],
+            'migrationPath' => null,
+        ],
+        'users' => [
+            'class' => Deployer\Console\Controllers\Users::class,
+        ],
+    ],
+];
+
+/** @noinspection PhpUnhandledExceptionInspection */
+$application = new console\Application(ArrayHelper::merge($commonConfig, $config));
+$exitCode = $application->run();
+exit($exitCode);
