@@ -12,7 +12,7 @@ use yii\di;
  * Class Authenticator
  * @package Wearesho\Deployer\Controllers\Login\Form\Validator
  */
-class Authenticator extends Deployer\Models\User\Validator
+class Authenticator extends Deployer\Controllers\Login\Form\Validator
 {
     /** @var string */
     public $message = 'Неверный код Google Authenticator';

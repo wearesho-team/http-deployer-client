@@ -1,7 +1,6 @@
 <?php
 
 use Wearesho\Deployer;
-use yii\web;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -17,7 +16,7 @@ $form = ActiveForm::begin([
 ]) ?>
 <?= $form->field($model, 'login') ?>
 <?= $form->field($model, 'secure') ?>
-<?= $form->field($model, 'password', ['options' => ['type' => 'password',]]) ?>
+<?= $form->field($model, 'password')->passwordInput() ?>
 
 <div class="form-group">
     <div class="col-lg-offset-1 col-lg-11">

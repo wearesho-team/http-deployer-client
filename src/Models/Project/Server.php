@@ -15,6 +15,8 @@ use yii\validators\UniqueValidator;
  * @property string $host
  * @property string $secret
  *
+ * @property-read string $hostName
+ *
  * @property Deployer\Models\Project $project
  */
 class Server extends db\ActiveRecord
@@ -31,6 +33,8 @@ class Server extends db\ActiveRecord
             [['project_id',], 'integer', 'min' => 1,],
             [['project_id',], 'exist', 'targetRelation' => 'project',],
             [['host',], 'string',],
+            [['host',], 'url',],
+            [['host',], Server\HostValidator::class, 'skipOnError' => true,],
             [['secret',], 'string',],
             [
                 ['host',],
@@ -56,4 +60,10 @@ class Server extends db\ActiveRecord
         $this->populateRelation('project', $project);
         return $this;
     }
+
+    public function getHostName(): string
+    {
+        return parse_url($this->host, PHP_URL_HOST);
+    }
+
 }

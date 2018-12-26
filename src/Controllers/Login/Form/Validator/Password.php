@@ -10,7 +10,7 @@ use Wearesho\Deployer;
  * Class Password
  * @package Wearesho\Deployer\Controllers\Login\Form\Validator
  */
-class Password extends Deployer\Models\User\Validator
+class Password extends Deployer\Controllers\Login\Form\Validator
 {
     /** @var string */
     public $message = 'Неверный пароль';

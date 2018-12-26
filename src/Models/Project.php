@@ -12,6 +12,7 @@ use yii\db;
  * @property string $name [varchar(255)]
  *
  * @property-read Project\Server[] $servers
+ * @property-read Project\History[] $history
  */
 class Project extends db\ActiveRecord
 {
@@ -29,8 +30,21 @@ class Project extends db\ActiveRecord
         ];
     }
 
+    public function attributeLabels(): array
+    {
+        return [
+            'id' => 'ID',
+            'name' => 'Название',
+        ];
+    }
+
     public function getServers(): db\ActiveQuery
     {
-        return $this->hasOne(Project\Server::class, ['project_id' => 'id']);
+        return $this->hasMany(Project\Server::class, ['project_id' => 'id']);
+    }
+
+    public function getHistory(): db\ActiveQuery
+    {
+        return $this->hasMany(Project\History::class, ['project_id' => 'id']);
     }
 }

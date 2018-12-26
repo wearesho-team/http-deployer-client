@@ -8,14 +8,23 @@ use yii\web;
 
 $commonConfig = require dirname(__DIR__) . '/src/Config/config.php';
 $config = [
-    'defaultRoute' => 'users',
+    'defaultRoute' => 'project',
     'controllerMap' => [
-        'users' => [
-            'class' => Deployer\Controllers\Users::class,
-        ],
         'login' => [
             'class' => Deployer\Controllers\Login::class,
-        ]
+        ],
+        'project' => [
+            'class' => Deployer\Controllers\Project::class,
+        ],
+        'history' => [
+            'class' => Deployer\Controllers\History::class,
+        ],
+        'server' => [
+            'class' => Deployer\Controllers\Server::class,
+        ],
+        'environment' => [
+            'class' => Deployer\Controllers\Environment::class,
+        ],
     ],
     'components' => [
         'request' => [

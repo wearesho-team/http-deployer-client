@@ -4,7 +4,6 @@
 
 /* @var $content string */
 
-use Wearesho\ScoringDemo;
 use yii\helpers\Html;
 
 ?>
@@ -19,21 +18,24 @@ use yii\helpers\Html;
     <title><?= Html::encode(\Yii::$app->name . ' - ' . $this->title) ?></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
-<div class="container">
+<div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/"><?= \Yii::$app->name ?></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/statistics">Статистика</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/import">Импорт</a>
-                </li>
+                <?php if (!\Yii::$app->user->isGuest): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/project">Проекты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login/logout">Выход</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>

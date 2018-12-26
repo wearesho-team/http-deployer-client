@@ -1,5 +1,8 @@
 # Scoring Demo Web Interface
-Web application that allows to display scoring configuration
+Web application that allows configure environment on servers
+with [http-deployer](https://github.com/wearesho-team/http-deployer)
+installed.
+
 Written using Yii2 and PHP 7.2. Requires PostgreSQL 10
 Should be run using Docker.
 

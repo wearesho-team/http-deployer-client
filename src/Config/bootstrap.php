@@ -10,3 +10,7 @@ $dotEnv->load();
     dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'src'
 );
 \Yii::setAlias('@runtime', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Runtime');
+\Yii::$container->set(
+    GuzzleHttp\ClientInterface::class,
+    GuzzleHttp\Client::class
+);
