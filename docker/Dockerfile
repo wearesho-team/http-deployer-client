@@ -22,11 +22,8 @@ RUN echo "$(curl -sS https://composer.github.io/installer.sig) -" > composer-set
 
 COPY docker/cli.php.ini /etc/php/7.2/cli/php.ini
 
-ARG COMPOSER_TOKEN
-RUN composer config --global --auth http-basic.repo.packagist.com token $COMPOSER_TOKEN
-
 COPY composer.json composer.lock /usr/src/site/
-RUN composer install --no-ansi --no-dev && rm -rf ~/.composer
+RUN composer install --no-ansi --no-dev --no-progress --no-suggest --prefer-dist --optimize-autoloader
 
 COPY . .
 
