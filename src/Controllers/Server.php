@@ -75,7 +75,7 @@ class Server extends web\Controller
         $server = new Deployer\Models\Project\Server([
             'project' => $project,
         ]);
-        switch ($this->request->method) {
+        switch (strtoupper($this->request->method)) {
             /** @noinspection PhpMissingBreakStatementInspection */
             case 'POST':
                 if ($server->load($this->request->bodyParams) && $server->save()) {

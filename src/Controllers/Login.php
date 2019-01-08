@@ -64,7 +64,7 @@ class Login extends web\Controller
      */
     public function actionIndex()
     {
-        switch ($this->request->method) {
+        switch (strtoupper($this->request->method)) {
             case 'POST':
                 return $this->login();
             case 'GET':

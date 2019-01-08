@@ -63,7 +63,7 @@ class Project extends web\Controller
     public function actionCreate()
     {
         $project = new Deployer\Models\Project;
-        switch ($this->request->method) {
+        switch (strtoupper($this->request->method)) {
             /** @noinspection PhpMissingBreakStatementInspection */
             case 'POST':
                 if ($project->load($this->request->bodyParams) && $project->save()) {
