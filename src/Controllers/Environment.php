@@ -110,19 +110,14 @@ class Environment extends web\Controller
         if (!is_null($key) && count($project->servers)) {
             $model->value = $this->repository->get($project->servers[0], $key);
         }
-        switch (strtoupper($this->request->method)) {
-            case 'POST':
-                if (!$model->load($this->request->bodyParams) || !$model->validate()) {
-                    continue;
-                }
+        if ($this->request->method === 'POST') {
+            if ($model->load($this->request->bodyParams) && $model->validate()) {
                 $previous = $this->repository->put($project, $model->key, $model->value);
                 $key = $model->key;
                 return $this->render('put', compact('previous', 'project', 'key'));
-            case 'GET':
-                return $this->render('edit', compact('model', 'project'));
-
+            }
         }
-        throw new web\MethodNotAllowedHttpException();
+        return $this->render('edit', compact('model', 'project'));
     }
 
     /**
