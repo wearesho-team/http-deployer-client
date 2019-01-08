@@ -57,6 +57,7 @@ $config = [
         ],
         'session' => [
             'class' => web\DbSession::class,
+            'name' => 'HDCSESSID',
         ],
     ],
 ];
