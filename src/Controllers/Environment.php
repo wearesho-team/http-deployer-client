@@ -106,10 +106,15 @@ class Environment extends web\Controller
     public function actionPut(string $project, string $key = null): string
     {
         $project = $this->findProject($project);
-        $model = new Environment\Form(['key' => $key]);
-        if (!is_null($key) && count($project->servers)) {
-            $model->value = $this->repository->get($project->servers[0], $key);
+        $model = new Environment\Form;
+
+        if (!is_null($key)) {
+            $model->key = $key;
+            if (count($project->servers)) {
+                $model->value = $this->repository->get($project->servers[0], $key);
+            }
         }
+
         if ($this->request->method === 'POST') {
             if ($model->load($this->request->bodyParams) && $model->validate()) {
                 $previous = $this->repository->put($project, $model->key, $model->value);
@@ -117,6 +122,7 @@ class Environment extends web\Controller
                 return $this->render('put', compact('previous', 'project', 'key'));
             }
         }
+
         return $this->render('edit', compact('model', 'project'));
     }
 
