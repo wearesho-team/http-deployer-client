@@ -13,7 +13,7 @@ $this->title = $model->key ? "Редактирование {$model->key}" : "С�
 $form = ActiveForm::begin([
     'id' => 'environment-form',
     'method' => 'post',
-    'action' => '/environment/put?' . http_build_query(['project' => $project->name]),
+    'action' => '/environment/put?' . http_build_query(['project' => $project->name, 'key' => $model->key]),
 ]) ?>
 <?= $form->field($model, 'key')->textInput(['disabled' => (bool)$model->key,]) ?>
 <?= $form->field($model, 'value') ?>
