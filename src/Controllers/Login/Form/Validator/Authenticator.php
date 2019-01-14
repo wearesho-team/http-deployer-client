@@ -45,6 +45,6 @@ class Authenticator extends Deployer\Controllers\Login\Form\Validator
         if ($this->authenticator->checkCode($user->authenticator_secret, $value)) {
             return null;
         }
-        return [$this->message,];
+        return [$this->message, [],];
     }
 }

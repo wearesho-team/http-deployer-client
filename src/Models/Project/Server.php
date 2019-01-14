@@ -65,5 +65,4 @@ class Server extends db\ActiveRecord
     {
         return parse_url($this->host, PHP_URL_HOST);
     }
-
 }

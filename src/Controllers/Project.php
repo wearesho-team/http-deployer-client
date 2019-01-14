@@ -69,6 +69,7 @@ class Project extends web\Controller
                 if ($project->load($this->request->bodyParams) && $project->save()) {
                     return $this->redirect('/project/index');
                 }
+                // no break
             case 'GET':
                 return $this->render('create', ['model' => $project,]);
             default:

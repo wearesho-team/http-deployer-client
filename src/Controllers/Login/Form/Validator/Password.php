@@ -26,6 +26,6 @@ class Password extends Deployer\Controllers\Login\Form\Validator
         if ($user->validatePassword($value)) {
             return null;
         }
-        return [$this->message,];
+        return [$this->message, [],];
     }
 }
