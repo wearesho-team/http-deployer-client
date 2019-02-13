@@ -25,6 +25,7 @@ $config = [
         'environment' => [
             'class' => Deployer\Controllers\Environment::class,
         ],
+        'monitoring' => Deployer\Controllers\Monitoring::class,
     ],
     'components' => [
         'request' => [
