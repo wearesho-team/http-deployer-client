@@ -8,6 +8,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use yii\di;
 use yii\web;
 use yii\base;
+use yii\filters;
 use Wearesho\Deployer;
 
 /**
@@ -16,7 +17,7 @@ use Wearesho\Deployer;
  */
 class Monitoring extends web\Controller
 {
-    public $defaultAction = 'list';
+    public $defaultAction = 'containers';
 
     /** @var string|array|Deployer\Repositories\Container */
     public $repository = Deployer\Repositories\Container::class;
@@ -33,11 +34,22 @@ class Monitoring extends web\Controller
         );
     }
 
+    public function behaviors(): array
+    {
+        return [
+            'cache' => [
+                'class' => filters\PageCache::class,
+                'only' => ['containers'],
+                'duration' => 5,
+            ],
+        ];
+    }
+
     /**
      * @return string
      * @throws web\HttpException
      */
-    public function actionList(): string
+    public function actionContainers(): string
     {
         $projects = Deployer\Models\Project::find()
             ->innerJoinWith('servers')
@@ -55,7 +67,7 @@ class Monitoring extends web\Controller
                     }, $project->servers),
                 ];
             }, $projects);
-        } catch (GuzzleException $exception) {
+        } /** @noinspection PhpRedundantCatchClauseInspection */ catch (GuzzleException $exception) {
             if (YII_DEBUG) {
                 /** @noinspection PhpUnhandledExceptionInspection */
                 throw $exception;

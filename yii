@@ -17,7 +17,9 @@ $config = [
                 'Wearesho\\Deployer\\Migrations',
             ],
             'migrationPath' => [
-                    '@yii/web/migrations'
+                '@yii/web/migrations',
+                '@yii/log/migrations',
+                '@yii/caching/migrations',
             ],
         ],
         'users' => [
