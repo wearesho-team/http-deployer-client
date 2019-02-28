@@ -15,6 +15,7 @@
     "yiisoft/yii2-bootstrap": "^2.0"
   },
   "require-dev": {
+    "brainmaestro/composer-git-hooks": "^2.6",
     "squizlabs/php_codesniffer": "^3.3"
   },
   "license": "proprietary",
@@ -36,9 +37,20 @@
     }
   },
   "scripts": {
-    "lint": "./vendor/bin/phpcs --standard=PSR2 ./src",
-    "phpcbf": "./vendor/bin/phpcbf --standard=PSR2 ./src",
-    "test": "./vendor/bin/phpunit"
+    "lint": "phpcs --standard=PSR2 ./src ./tests",
+    "phpcbf": "phpcbf --standard=PSR2 ./src ./tests",
+    "cover": "phpunit --coverage-clover=coverage.xml",
+    "test": "phpunit",
+    "post-install-cmd": "cghooks add --ignore-lock",
+    "post-update-cmd": "cghooks update"
+  },
+  "extra": {
+    "hooks": {
+      "pre-commit": [
+        "composer lint"
+      ],
+      "post-merge": "composer update --lock"
+    }
   },
   "autoload": {
     "psr-4": {
